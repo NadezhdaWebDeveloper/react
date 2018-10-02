@@ -1,22 +1,31 @@
-import Menu from './Menu';
-import StarRating from './StarRating';
+import {Component} from 'react';
+
 import data from '../data/recipes';
 
+import Menu from './Menu';
+import ColorList from './ColorList';
 import AddColorForm from './AddColorForm';
 
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            colors: []
+        }
+    }
 
-const logColor = (title, color) =>
-    console.log(`New Color: ${title} ${color}`)
-
-
-
-const App = () => 
-    <div>
-        <Menu recipes={data} />
-        <hr/>
-        <AddColorForm onNewColor={logColor} />
-        <hr/>
-        <StarRating totalStars={7} starsSelected={3} />
-    </div>
+    render() {
+        const {colors} = this.state;
+        return (
+            <div className="app">
+                <Menu recipes={data} />
+                <hr/>
+                <br/>
+                <AddColorForm />
+                <ColorList colors={colors} />
+            </div>
+        )
+    }
+}
 
 export default App
