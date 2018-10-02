@@ -1,4 +1,5 @@
 import Menu from './Menu';
+import StarRating from './StarRating';
 import data from '../data/recipes';
 
 import AddColorForm from './AddColorForm';
@@ -14,6 +15,8 @@ const App = () =>
         <Menu recipes={data} />
         <hr/>
         <AddColorForm onNewColor={logColor} />
+        <hr/>
+        <StarRating totalStars={7} starsSelected={3} />
     </div>
 
 export default App
